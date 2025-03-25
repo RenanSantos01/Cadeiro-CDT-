@@ -287,3 +287,30 @@ footer {
         text-align: center;
     }
 }
+
+/* Apply fonts to elements */
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Poppins', sans-serif;
+}
+
+.logotipo span {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+nav ul li a {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+}
+
+.botao-entrar,
+.botao-cadastrar,
+.botao-acao,
+.botao-contato {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+}
