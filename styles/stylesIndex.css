@@ -1,0 +1,122 @@
+/* INDEX PAGE */
+
+:root {
+    --cor-primaria: #FFB800;
+    --fundo-escuro: #0D0D0D;
+    --cor-texto: #FFFFFF;
+    --fundo-cartao: #1A1A1A;
+}
+
+.principal {
+    padding: 4rem;
+    position: relative;
+}
+
+.conteudo-principal {
+    max-width: 900px;
+}
+
+.principal h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.contador-usuarios {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+
+.botao-acao {
+    background: var(--cor-primaria);
+    color: var(--fundo-escuro);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.botao-acao:hover {
+    scale: 1.02;
+}
+
+/* Seção de Notícias */
+
+.noticias {
+    padding: 4rem;
+    text-align: center;
+}
+
+.noticias h2 {
+    color: var(--cor-primaria);
+}
+
+.carrossel {
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    padding: 2rem 0;
+}
+
+.cartao {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--fundo-cartao);
+    padding: 1.5rem;
+    border-radius: 10px;
+    min-width: 320px;
+}
+
+.cartao:hover {
+    scale: 1.05;
+    cursor: pointer;
+}
+
+.cartao img {
+    width: 100px;
+    margin-bottom: 1rem;
+}
+
+.cartao h3 {
+    color: var(--cor-primaria);
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+/* Seção de Informação */
+
+.informacao {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 4rem;
+    gap: 2rem;
+}
+
+.informacao h4 {
+    color: var(--cor-primaria);
+}
+
+.informacao h2 {
+    color: var(--cor-texto);
+}
+
+.botao-contato {
+    background: var(--cor-primaria);
+    color: var(--fundo-escuro);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    cursor: pointer;
+    max-width: 17rem;
+}
+
+.botao-contato:hover {
+    scale: 1.02;
+}
