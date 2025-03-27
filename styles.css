@@ -314,3 +314,399 @@ nav ul li a {
     font-family: 'Inter', sans-serif;
     font-weight: 600;
 }
+
+/* CRIPTO PAGE */
+
+.cripto-page {
+    padding: 2rem;
+}
+
+.cripto-info {
+    background: #1a1a1a;
+    border-radius: 16px;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 1200px;
+}
+
+.cripto-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.current-price {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.price-change {
+    margin-left: 1rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+}
+
+.price-change.positive {
+    background: rgba(0, 255, 0, 0.1);
+    color: #00ff00;
+}
+
+.chart-container {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1rem;
+    margin: 2rem 0;
+    height: 400px;
+}
+
+.chart-controls {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.time-button {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.time-button.active {
+    background: #3366ff;
+}
+
+.market-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.stat-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.stat-label {
+    display: block;
+    color: #888;
+    margin-bottom: 0.5rem;
+}
+
+.stat-value {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+    /* Cursos Page Styles */
+    .cursos-page {
+        padding: 2rem;
+        min-height: calc(100vh - 200px);
+        background: #1a1a1a;
+    }
+    
+    .cursos-header {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+    
+    .cursos-tabs {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+    
+    .tab-button {
+        background: rgba(255, 255, 255, 0.1);
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 30px;
+        color: #fff;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+    
+    .tab-button.active {
+        background: var(--cor-primaria);
+        color: var(--fundo-escuro);
+    }
+    
+    .cursos-section {
+        display: none;
+    }
+    
+    .cursos-section.active {
+        display: block;
+    }
+    
+    .cursos-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        padding: 1rem;
+    }
+    
+    .curso-card {
+        background: #242424;
+        border-radius: 12px;
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .curso-card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+    
+    .curso-card h3 {
+        color: var(--cor-primaria);
+    }
+    
+    .curso-card p {
+        color: #ccc;
+        flex-grow: 1;
+    }
+    
+    .duracao {
+        color: #888;
+        font-size: 0.9rem;
+    }
+    
+    .botao-iniciar,
+    .botao-continuar,
+    .botao-certificado {
+        background: var(--cor-primaria);
+        color: var(--fundo-escuro);
+        border: none;
+        padding: 0.75rem;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 600;
+    }
+    
+    .progresso {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .barra-progresso {
+        background: rgba(255, 255, 255, 0.1);
+        height: 8px;
+        border-radius: 4px;
+        overflow: hidden;
+    }
+    
+    .progresso-atual {
+        background: var(--cor-primaria);
+        height: 100%;
+        border-radius: 4px;
+    }
+    
+    .status-concluido {
+        color: #00ff00;
+        font-weight: 500;
+    }
+    
+    @media (max-width: 768px) {
+        .cursos-tabs {
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .tab-button {
+            width: 100%;
+            max-width: 300px;
+        }
+    }
+    
+    .formulario-suporte {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem;
+        background: #242424; /* Updated to match theme */
+        border-radius: 12px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .formulario-suporte h1 {
+        color: #fff; /* Updated text color */
+    }
+
+    .formulario-suporte p {
+        color: #ccc; /* Updated text color */
+    }
+
+    .form-group label {
+        color: #fff; /* Updated label color */
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        background: #333; /* Updated input background */
+        border: 1px solid #444;
+        color: #fff;
+    }
+
+    .form-container {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .form-group label {
+        font-weight: 500;
+        color: #333;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+        color: #888;
+    }
+
+    .form-group select {
+        color: #888;
+    }
+
+    .form-group select option:not(:first-child) {
+        color: #fff;
+    }
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.botao-enviar {
+    background: #3366ff;
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.botao-enviar:hover {
+    background: #2952cc;
+}
+
+.suporte-page {
+    min-height: calc(100vh - 80px); /* Adjust based on header height */
+    background: #1a1a1a;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+.formulario-suporte {
+    flex: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: #242424;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+footer {
+    margin-top: auto;
+}
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; /* Increased gap between form elements */
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 1rem; /* Increased padding for better visual */
+    margin-top: 0.5rem;
+}
+
+.formulario-suporte {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem; /* Increased padding */
+    background: #242424;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    margin-bottom: 2rem; /* Added margin bottom for footer spacing */
+}
+
+@media (max-width: 768px) {
+    .suporte-page {
+        min-height: calc(100vh - 80px); /* Adjust based on header height */
+        background: #1a1a1a;
+        display: flex;
+        flex-direction: column;
+        padding: 2rem;
+    }
+
+    .formulario-suporte {
+        flex: 1;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem;
+        background: #242424;
+        border-radius: 12px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    footer {
+        margin-top: auto;
+    }
+    .form-container {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem; /* Increased gap between form elements */
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 1rem; /* Increased padding for better visual */
+        margin-top: 0.5rem;
+    }
+    
+    .formulario-suporte {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 3rem; /* Increased padding */
+        background: #242424;
+        border-radius: 12px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        margin-bottom: 2rem; /* Added margin bottom for footer spacing */
+    }
+}

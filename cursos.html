@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardeiro - Cursos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="tema-escuro">
+        <div class="logotipo">
+            <img class="logotipo img" src="IMG/criptoaaa.PNG" alt="Cardeiro">
+            <span>Cardeiro</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="suporte.html">Suporte</a></li>
+                <li><a href="criptomoeda.html">Criptomoeda</a></li>
+                <li><a href="cursos.html">Cursos</a></li>
+            </ul>
+        </nav>
+        <div class="botoes-autenticacao">
+            <button class="botao-entrar">Login</button>
+            <button class="botao-cadastrar">Sign Up</button>
+        </div>
+    </header>
+
+    <main class="cursos-page">
+        <section class="cursos-header">
+            <h1>Meus Cursos</h1>
+            <div class="cursos-tabs">
+                <button class="tab-button active" data-tab="disponiveis">Disponíveis</button>
+                <button class="tab-button" data-tab="em-curso">Em Curso</button>
+                <button class="tab-button" data-tab="concluidos">Concluídos</button>
+            </div>
+        </section>
+
+        <section id="disponiveis" class="cursos-section active">
+            <div class="cursos-grid">
+                <div class="curso-card">
+                    <img src="IMG/blockchain.jpg" alt="Blockchain">
+                    <h3>Fundamentos de Blockchain</h3>
+                    <p>Aprenda os conceitos básicos de blockchain e sua aplicação.</p>
+                    <span class="duracao">40 horas</span>
+                    <button class="botao-iniciar">Começar Curso</button>
+                </div>
+                <div class="curso-card">
+                    <img src="IMG/criptomoeda.jpg" alt="Criptomoedas">
+                    <h3>Trading de Criptomoedas</h3>
+                    <p>Estratégias avançadas para trading de criptomoedas.</p>
+                    <span class="duracao">30 horas</span>
+                    <button class="botao-iniciar">Começar Curso</button>
+                </div>
+                <div class="curso-card">
+                    <img src="IMG/investimentobasico.jpg" alt="Investimentos">
+                    <h3>Investimentos Básicos</h3>
+                    <p>Introdução ao mundo dos investimentos digitais.</p>
+                    <span class="duracao">25 horas</span>
+                    <button class="botao-iniciar">Começar Curso</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="em-curso" class="cursos-section">
+            <div class="cursos-grid">
+                <div class="curso-card em-progresso">
+                    <img src="IMG/defi.jpg" alt="DeFi">
+                    <h3>DeFi: Finanças Descentralizadas</h3>
+                    <p>Explore o mundo das finanças descentralizadas.</p>
+                    <div class="progresso">
+                        <div class="barra-progresso">
+                            <div class="progresso-atual" style="width: 45%"></div>
+                        </div>
+                        <span>45% Completo</span>
+                    </div>
+                    <button class="botao-continuar">Continuar</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="concluidos" class="cursos-section">
+            <div class="cursos-grid">
+                <div class="curso-card concluido">
+                    <img src="IMG/nft.webp" alt="NFTs">
+                    <h3>NFTs e Tokens Digitais</h3>
+                    <p>Fundamentos de NFTs e tokens não fungíveis.</p>
+                    <span class="status-concluido">Concluído</span>
+                    <button class="botao-certificado">Ver Certificado</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="tema-escuro">
+        <div class="conteudo-rodape">
+            <p class="direitos-autorais">© 2023 All Rights Reserved</p>
+            <div class="links-rodape">
+                <a href="#terms">Terms</a>
+                <a href="#privacy">Privacy</a>
+                <a href="#cookies">Cookies</a>
+            </div>
+            <div class="icones-sociais">
+                <a href="#" class="icone-social">f</a>
+                <a href="#" class="icone-social">t</a>
+                <a href="#" class="icone-social">in</a>
+                <a href="#" class="icone-social">ig</a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="suporte-chat">
+        <button class="botao-suporte">
+            <img src="IMG/ia.png" alt="Suporte">
+            <span>SUPORTE I.A</span>
+        </button>
+    </div>
+
+    <script src="cursos.js"></script>
+</body>
+</html>
