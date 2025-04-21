@@ -46,9 +46,9 @@
 .chart-container {
     background: rgba(255, 255, 255, 0.05);
     border-radius: 12px;
-    padding: 1rem;
+    padding: 1.5rem;
     margin: 2rem 0;
-    height: 400px;
+    height: 500px;
 }
 
 .chart-controls {
@@ -61,10 +61,10 @@
     background: rgba(255, 255, 255, 0.1);
     border: none;
     padding: 0.5rem 1rem;
-    border-radius: 6px;
+    border-radius: 4px;
     color: #fff;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: background-color 0.3s;
 }
 
 .time-button.active {
