@@ -52,8 +52,8 @@ function Home() {
             </ul>
         </nav>
         <div className="botoes-autenticacao">
-            <button className="botao-entrar">Login</button>
-            <button className="botao-cadastrar">Sign Up</button>
+            <a href='/cadastro' className="botao-entrar">Login</a>
+            <a className="botao-cadastrar">Sign Up</a>
         </div>
       </header>
 
