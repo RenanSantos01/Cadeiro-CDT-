@@ -1,8 +1,8 @@
-import OpenAI from 'openai';
+// import OpenAI from 'openai';
 
-const openai = new OpenAI({
-  apiKey: import.meta.env.VITE_OPENAI_API_KEY,
-  dangerouslyAllowBrowser: true // Only for development!
-});
+// const openai = new OpenAI({
+//   apiKey: import.meta.env.VITE_OPENAI_API_KEY,
+//   dangerouslyAllowBrowser: true // Only for development!
+// });
 
-export default openai;
+// export default openai;
