@@ -3,6 +3,8 @@ import React from 'react';
 import './cadastrostyle.css';
 import { GoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from "jwt-decode";
+import { Link } from 'react-router-dom';
+import criptoLogo from '../../assets/criptologo.PNG';
 // import api from '../../services/api.js';
 
 function Cadastro() {
@@ -59,11 +61,25 @@ function Cadastro() {
 
   return (
     <div className="app-container">
-      <nav className="navbar">
-        <div className='row mt-3'>
-          <h1>BitWave</h1>
+      <header className="tema-escuro">
+        <div className="logotipo">
+          <img className="logotipo img" src={criptoLogo} alt="Cardeiro" />
+          <span>Cardeiro</span>
         </div>
-      </nav>
+        <nav>
+          <ul>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/suporte">Suporte</Link></li>
+            <li><Link to="/cripto">Criptomoeda</Link></li>
+            <li><Link to="/cursos">Cursos</Link></li>
+          </ul>
+        </nav>
+        <div className="botoes-autenticacao">
+          <button className="botao-entrar">Login</button>
+          <button className="botao-cadastrar">Sign Up</button>
+        </div>
+      </header>
+
       <div className="container">
         <form onSubmit={handleSubmit}>
           <div className='row mt-3'>
@@ -91,6 +107,8 @@ function Cadastro() {
               </div>
             </div>
           </div>
+
+          <div class="buttons">
           <button className='button-cadastro' type="submit" /*</form>onClick={createUsers} */ >Cadastrar</button>
 
           <p></p>
@@ -118,12 +136,24 @@ function Cadastro() {
               console.log('Login com Google falhou');
             }}
           />
+          </div>
 
         </form>
       </div>
-      <footer className="footer">
-        <div className='row mt-3'>
-          <p>© 2024 BitWave. Todos os direitos reservados.</p>
+      <footer className="tema-escuro">
+        <div className="conteudo-rodape">
+          <p className="direitos-autorais">© 2024 Cardeiro. Todos os direitos reservados.</p>
+          <div className="links-rodape">
+            <a href="#terms">Terms</a>
+            <a href="#privacy">Privacy</a>
+            <a href="#cookies">Cookies</a>
+          </div>
+          <div className="icones-sociais">
+            <a href="#" className="icone-social">f</a>
+            <a href="#" className="icone-social">t</a>
+            <a href="#" className="icone-social">in</a>
+            <a href="#" className="icone-social">ig</a>
+          </div>
         </div>
       </footer>
     </div>

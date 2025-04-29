@@ -74,6 +74,7 @@ nav a {
   border: none;
   cursor: pointer;
   font-size: 1rem;
+  text-decoration: none;
 }
 
 .botao-cadastrar {
@@ -87,6 +88,7 @@ nav a {
   align-items: center;
   gap: 0.5rem;
   font-size: 1rem;
+  text-decoration: none;
 }
 
 /* Rodapé */

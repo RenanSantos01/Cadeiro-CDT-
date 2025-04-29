@@ -1,0 +1,96 @@
+:root {
+    --cor-primaria: #FFB800;
+    --fundo-escuro: #0D0D0D;
+    --cor-texto: #FFFFFF;
+    --fundo-cartao: #1A1A1A;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--fundo-escuro);
+}
+
+.container {
+    background-color: var(--fundo-cartao);
+    padding: 40px;
+    max-width: 400px;
+    margin: 70px auto;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    flex: 1;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form h1 {
+    color: var(--cor-texto);
+    margin-bottom: 20px;
+    font-size: 28px;
+    text-align: center;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #444;
+    border-radius: 4px;
+    background-color: var(--fundo-cartao);
+    color: var(--cor-texto);
+    font-size: 16px;
+}
+
+input::placeholder {
+    color: #ccc;
+}
+
+.botao-login {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--cor-primaria);
+    border: none;
+    border-radius: 4px;
+    color: var(--fundo-escuro);
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    font-weight: 600;
+}
+
+.botao-login:hover {
+    scale: 1.02;
+}
+
+.signup-link {
+    text-align: center;
+    margin-top: 20px;
+    color: var(--cor-texto);
+}
+
+.signup-link a {
+    color: var(--cor-primaria);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+.error-message {
+    color: #ff4444;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Estilo para o botão do Google */
+.google-login-button {
+    margin-top: 20px;
+    width: 100%;
+}
