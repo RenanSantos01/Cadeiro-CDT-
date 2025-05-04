@@ -74,8 +74,8 @@ function Cadastro() {
           </ul>
         </nav>
         <div className="botoes-autenticacao">
-          <button className="botao-entrar">Login</button>
-          <button className="botao-cadastrar">Sign Up</button>
+          <a href='/login' className="botao-entrar">Login</a>
+          <a href='/cadastro' className="botao-cadastrar">Sign Up</a>
         </div>
       </header>
 
@@ -141,7 +141,7 @@ function Cadastro() {
       </div>
       <footer className="tema-escuro">
         <div className="conteudo-rodape">
-          <p className="direitos-autorais">© 2024 Cardeiro. Todos os direitos reservados.</p>
+          <p className="direitos-autorais">© 2023 All Rights Reserved</p>
           <div className="links-rodape">
             <a href="#terms">Terms</a>
             <a href="#privacy">Privacy</a>

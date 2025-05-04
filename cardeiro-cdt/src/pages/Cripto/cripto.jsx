@@ -122,8 +122,8 @@ function Cripto() {
                     </ul>
                 </nav>
                 <div className="botoes-autenticacao">
-                    <button className="botao-entrar">Login</button>
-                    <button className="botao-cadastrar">Sign Up</button>
+                    <a href='/login' className="botao-entrar">Login</a>
+                    <a href='/cadastro' className="botao-cadastrar">Sign Up</a>
                 </div>
             </header>
 

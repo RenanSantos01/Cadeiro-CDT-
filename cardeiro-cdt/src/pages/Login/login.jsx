@@ -124,8 +124,8 @@ function Login() {
           </ul>
         </nav>
         <div className="botoes-autenticacao">
-          <Link to="/login" className="botao-entrar">Login</Link>
-          <Link to="/cadastro" className="botao-cadastrar">Sign Up</Link>
+          <a href='/login' className="botao-entrar">Login</a>
+          <a href='/cadastro' className="botao-cadastrar">Sign Up</a>
         </div>
       </header>
 
@@ -134,35 +134,35 @@ function Login() {
           <h1>Login</h1>
           <input name="Email" type="email" placeholder="Email" ref={inputEmail} required />
           <input name="Senha" type="password" placeholder="Senha" ref={inputSenha} required />
-          
+
           <div className='buttons'>
-          <button type="submit" onClick={fazerlogin} className="botao-login">Entrar</button>
-          {errorMessage && <p className="error-message">{errorMessage}</p>}
+            <button type="submit" onClick={fazerlogin} className="botao-login">Entrar</button>
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-          <p></p>
+            <p></p>
 
-          <GoogleLogin
-            onSuccess={credentialResponse => {
-              const decoded = jwtDecode(credentialResponse?.credential);
-              const { email, name } = decoded; // Extrai o email e o nome do token
+            <GoogleLogin
+              onSuccess={credentialResponse => {
+                const decoded = jwtDecode(credentialResponse?.credential);
+                const { email, name } = decoded; // Extrai o email e o nome do token
 
-              // Envia os dados ao backend para login ou cadastro
-              api.post('/login/google', { email, name })
-                .then(response => {
-                  const { token, userId } = response.data;
-                  localStorage.setItem('token', token);
-                  localStorage.setItem('userId', userId);
-                  window.location.href = '/Dashboard'; // Redireciona após login
-                })
-                .catch(error => {
-                  setErrorMessage(error.response?.data?.message || 'Erro ao fazer login com Google');
-                });
-            }}
-            onError={() => {
-              console.log('Login com Google falhou');
-              setErrorMessage('Erro ao fazer login com Google');
-            }}
-          />
+                // Envia os dados ao backend para login ou cadastro
+                api.post('/login/google', { email, name })
+                  .then(response => {
+                    const { token, userId } = response.data;
+                    localStorage.setItem('token', token);
+                    localStorage.setItem('userId', userId);
+                    window.location.href = '/Dashboard'; // Redireciona após login
+                  })
+                  .catch(error => {
+                    setErrorMessage(error.response?.data?.message || 'Erro ao fazer login com Google');
+                  });
+              }}
+              onError={() => {
+                console.log('Login com Google falhou');
+                setErrorMessage('Erro ao fazer login com Google');
+              }}
+            />
           </div>
 
 
@@ -174,7 +174,7 @@ function Login() {
 
       <footer className="tema-escuro">
         <div className="conteudo-rodape">
-          <p className="direitos-autorais">© 2024 Cardeiro. Todos os direitos reservados.</p>
+          <p className="direitos-autorais">© 2023 All Rights Reserved</p>
           <div className="links-rodape">
             <a href="#terms">Terms</a>
             <a href="#privacy">Privacy</a>
