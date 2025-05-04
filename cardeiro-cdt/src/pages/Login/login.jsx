@@ -165,7 +165,6 @@ function Login() {
             />
           </div>
 
-
           <div className="signup-link">
             <p>Não tem uma conta? <Link to='/cadastro'>Registre-se</Link></p>
           </div>

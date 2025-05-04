@@ -79,7 +79,7 @@ function Cadastro() {
         </div>
       </header>
 
-      <div className="container">
+      <div className="container-cadastro">
         <form onSubmit={handleSubmit}>
           <div className='row mt-3'>
             <h1>Cadastro de Usuário</h1>
