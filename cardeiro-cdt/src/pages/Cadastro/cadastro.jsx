@@ -71,7 +71,6 @@ function Cadastro() {
             <li><Link to="/">Home</Link></li>
             <li><Link to="/suporte">Suporte</Link></li>
             <li><Link to="/cripto">Criptomoeda</Link></li>
-            <li><Link to="/cursos">Cursos</Link></li>
           </ul>
         </nav>
         <div className="botoes-autenticacao">
