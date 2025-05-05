@@ -4,7 +4,7 @@ import './loginstyle.css';
 import { Link } from 'react-router-dom';
 import { GoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from 'jwt-decode';
-// import api from '../../services/api.js';
+import api from '../../services/api.js';
 import criptoLogo from '../../assets/criptologo.PNG';
 
 function Login() {
@@ -12,9 +12,11 @@ function Login() {
   const inputEmail = useRef()
   const inputSenha = useRef()
   const [errorMessage, setErrorMessage] = useState('')
+
   //const [users, setUsers] = useState([]);
   //const [userEmail, setUserEmail] = useState([]);
   //const sleep = ms => new Promise(r => setTimeout(r, ms));
+
   let userEmail = [];
 
 
@@ -26,39 +28,33 @@ function Login() {
     console.log(users)
   }*/
 
-  //   async function getUserEmail(email) {
-  //     const userEmailFromApi = await api.get(`/users?email=${email}`)
 
-  //setUserEmail(userEmailFromApi.data)
-  //setUserEmail([...userEmail, userEmailFromApi.data]);
-  // userEmail = userEmailFromApi.data;
-  // console.log(userEmailFromApi.data)
-  // console.log(userEmail)
-  // try {
-  //userEmail.length > 0 ? (
-  // userEmail.map((user) => (
-  //   //  userId = (user.id) 
-  //   console.log(user.id),
-  //   localStorage.setItem("userId", user.id),
-  //   console.log(localStorage.getItem("userId"))
-  // ))
-  //) : (
-  //  console.log("Não rodou")
-  //)
-  //       toDashboard()
-  //     } catch (error) {
-  //       console.log("Deu pal")
-  //     }
+  async function getUserEmail(email) {
+    const userEmailFromApi = await api.get(`/users?email=${email}`)
 
-  //   }
+    userEmail = userEmailFromApi.data;
+    console.log(userEmailFromApi.data)
+    console.log(userEmail)
+    try {
 
-  function toDashboard() {
-    window.location.href = '/dashboard';
+      userEmail.map((user) => (
+
+        console.log(user.id),
+        localStorage.setItem("userId", user.id),
+        console.log(localStorage.getItem("userId"))
+      ))
+
+      toDashboard()
+
+    } catch (error) {
+      console.log("Deu pal")
+    }
   }
 
-  /*useEffect(() => {
-    console.log(userEmail);
-  }, [userEmail])*/
+
+  function toDashboard() {
+    window.location.href = '/';
+  }
 
   async function fazerlogin(event) {
     event.preventDefault();
@@ -70,7 +66,6 @@ function Login() {
       });
 
 
-
       //const { token, userId } = response.data; // Certifique-se de que a API retorne o userId
       //localStorage.setItem('token', token);
       //const { userId } = response.data
@@ -80,14 +75,15 @@ function Login() {
 
       // Armazene o userId
 
+
       try {
         getUserEmail(inputEmail.current.value);
       } catch (error) {
         console.log("Não rodou o getUser")
       }
 
-
       console.log(inputEmail.current.value)
+
 
       /*userEmail.map((user) => (
         //  userId = (user.id) 
@@ -102,8 +98,9 @@ function Login() {
 
       //await sleep(5000)
 
-
       //window.location.href = '/dashboard'; // Redireciona para o dashboard após login bem-sucedido
+
+
     } catch (error) {
       setErrorMessage(error.response?.data?.msg || 'Login falhou. Verifique suas credenciais.');
     }
@@ -130,6 +127,7 @@ function Login() {
       </header>
 
       <div className="container">
+
         <form>
           <h1>Login</h1>
           <input name="Email" type="email" placeholder="Email" ref={inputEmail} required />
@@ -152,7 +150,7 @@ function Login() {
                     const { token, userId } = response.data;
                     localStorage.setItem('token', token);
                     localStorage.setItem('userId', userId);
-                    window.location.href = '/Dashboard'; // Redireciona após login
+                    window.location.href = '/'; // Redireciona após login
                   })
                   .catch(error => {
                     setErrorMessage(error.response?.data?.message || 'Erro ao fazer login com Google');
@@ -169,6 +167,7 @@ function Login() {
             <p>Não tem uma conta? <Link to='/cadastro'>Registre-se</Link></p>
           </div>
         </form>
+
       </div>
 
       <footer className="tema-escuro">

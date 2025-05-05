@@ -5,7 +5,7 @@ import { GoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from "jwt-decode";
 import { Link } from 'react-router-dom';
 import criptoLogo from '../../assets/criptologo.PNG';
-// import api from '../../services/api.js';
+import api from '../../services/api.js';
 
 function Cadastro() {
 
@@ -16,32 +16,25 @@ function Cadastro() {
   const inputSenha = useRef()
   
 
-  // async function getUsers() {
-  //   const usersFromApi = await api.get('/users')
+  async function getUsers() {
+    const usersFromApi = await api.get('/users')
 
-  //   setUsers(usersFromApi.data)
-  //   console.log(users)
-  // }
+    setUsers(usersFromApi.data)
+    console.log(users)
+  }
 
-  // async function createUsers() {
-  //   await api.post('/users', {
-  //     email: inputEmail.current.value,
-  //     name: inputName.current.value,
-  //     password: inputSenha.current.value
-  //   })
-  //   window.location.href = "./Login";
-  // }
+  async function createUsers() {
+    await api.post('/users', {
+      email: inputEmail.current.value,
+      name: inputName.current.value,
+      password: inputSenha.current.value
+    })
 
-  // ...
+  }
 
-  // useEffect(() => {
-  //   first
-
-  //   return () => {
-  //     second
-  //   }
-
-  // }, [third])
+  useEffect(() => {
+    getUsers()
+  }, [])
 
   const [acceptTerms, setAcceptTerms] = useState(false);
 
@@ -57,6 +50,7 @@ function Cadastro() {
     }
 
     console.log('Cadastro realizado com sucesso!');
+    window.location.href = "./Login"
   };
 
   return (
@@ -106,7 +100,7 @@ function Cadastro() {
           </div>
 
           <div class="buttons">
-          <button className='button-cadastro' type="submit" /*</form>onClick={createUsers} */ >Cadastrar</button>
+          <button className='button-cadastro' type="submit" onClick={createUsers} >Cadastrar</button>
 
           <p></p>
 
@@ -136,6 +130,7 @@ function Cadastro() {
           </div>
 
         </form>
+        
       </div>
       <footer className="tema-escuro">
         <div className="conteudo-rodape">
