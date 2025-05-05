@@ -89,7 +89,6 @@ function Cadastro() {
           <input name="Senha" type="password" placeholder="Senha" ref={inputSenha} required />
 
           <div className="terms">
-            <div className='row mt-3'>
               <div className='col-2 mt-4'>
                 <input
                   type="checkbox"
@@ -103,7 +102,6 @@ function Cadastro() {
                 <label htmlFor="terms">
                   Ao se inscrever, você concorda com nossos <a href="#">Termos de Uso</a> e com a <a href="#">Política de Privacidade</a>.
                 </label>
-              </div>
             </div>
           </div>
 

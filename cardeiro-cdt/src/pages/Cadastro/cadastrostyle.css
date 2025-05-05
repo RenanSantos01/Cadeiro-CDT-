@@ -46,7 +46,7 @@
 .container-cadastro form input::placeholder {
   color: #ccc;
 }
- 
+
 .buttons {
   display: flex;
   flex-direction: column;
@@ -70,33 +70,35 @@
 .button-cadastro:hover {
   scale: 1.02;
 }
-  
-  .terms {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 15px;
-    font-size: 14px;
-    color: #ccc;
-  }
-  
-  .terms input[type="checkbox"] {
-    margin-right: 10px;
-    margin-top: 3px;
-  }
-  
-  .terms label {
-    display: inline;
-    color: #ccc;
-    max-width: calc(100% - 40px);
-    word-wrap: break-word;
-  }
-  
-  .terms a {
-    color: #007bff;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  
-  .terms a:hover {
-    text-decoration: underline;
-  }
+
+.terms {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 15px;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.terms input[type="checkbox"] {
+  margin-right: 10px;
+  margin-top: 3px;
+}
+
+.terms label {
+  display: inline;
+  color: #ccc;
+  max-width: calc(100% - 40px);
+  word-wrap: break-word;
+}
+
+.terms a {
+  color: #007bff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.terms a:hover {
+  text-decoration: underline;
+}
