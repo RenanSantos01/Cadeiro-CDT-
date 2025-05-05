@@ -5,56 +5,89 @@ import criptoLogo from '../../assets/criptologo.PNG'
 import iaIcon from '../../assets/ia.png'
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Filler } from 'chart.js'
 import { Line } from 'react-chartjs-2'
+import AIChat from '../../components/AIChat';
 
 // Register ChartJS components
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Filler)
 
 function Cripto() {
     const [timeframe, setTimeframe] = useState('day')
+    const [bitcoinData, setBitcoinData] = useState({
+        currentPrice: 0,
+        priceChange: 0,
+        marketCap: 0,
+        volume: 0,
+        supply: 0
+    });
     const chartRef = useRef(null)
 
-    const generateData = (points) => {
-        const data = []
-        const basePrice = 45
-        for (let i = 0; i < points; i++) {
-            data.push({
-                x: new Date(Date.now() - (points - i) * 3600000).toISOString(),
-                y: basePrice + Math.random() * 10
-            })
-        }
-        return data
-    }
+    useEffect(() => {
+        fetchBitcoinData();
+        const interval = setInterval(fetchBitcoinData, 60000); // Update every minute
+        return () => clearInterval(interval);
+    }, []);
 
-    const getChartData = (timeframe) => {
-        let points
-        switch(timeframe) {
-            case 'day':
-                points = 24
-                break
-            case 'month':
-                points = 30
-                break
-            case 'year':
-                points = 365
-                break
-            default:
-                points = 24
+    const fetchBitcoinData = async () => {
+        try {
+            const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true&include_last_updated_at=true');
+            const data = await response.json();
+            
+            setBitcoinData({
+                currentPrice: data.bitcoin.usd,
+                priceChange: data.bitcoin.usd_24h_change,
+                marketCap: data.bitcoin.usd_market_cap,
+                volume: data.bitcoin.usd_24h_vol,
+                supply: 21000000 // Bitcoin's max supply
+            });
+        } catch (error) {
+            console.error('Error fetching Bitcoin data:', error);
         }
+    };
 
-        const chartData = generateData(points)
-
-        return {
-            labels: chartData.map(item => new Date(item.x).toLocaleTimeString()),
-            datasets: [{
-                label: 'CardeiroCoin Price',
-                data: chartData.map(item => item.y),
-                borderColor: '#3366ff',
-                backgroundColor: 'rgba(51, 102, 255, 0.1)',
-                fill: true,
-                tension: 0.4
-            }]
+    const fetchChartData = async (timeframe) => {
+        try {
+            const days = timeframe === 'day' ? 1 : timeframe === 'month' ? 30 : 365;
+            const response = await fetch(`https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=${days}&interval=daily`);
+            const data = await response.json();
+            
+            return {
+                labels: data.prices.map(price => new Date(price[0]).toLocaleString()),
+                datasets: [{
+                    label: 'Bitcoin Price',
+                    data: data.prices.map(price => price[1]),
+                    borderColor: '#F7931A', // Bitcoin orange
+                    backgroundColor: 'rgba(247, 147, 26, 0.1)',
+                    fill: true,
+                    tension: 0.4
+                }]
+            };
+        } catch (error) {
+            console.error('Error fetching chart data:', error);
+            return getChartData(timeframe); // Fallback to dummy data
         }
-    }
+    };
+
+    const [chartData, setChartData] = useState({
+        labels: [],
+        datasets: [{
+            label: 'Bitcoin Price',
+            data: [],
+            borderColor: '#F7931A',
+            backgroundColor: 'rgba(247, 147, 26, 0.1)',
+            fill: true,
+            tension: 0.4
+        }]
+    });
+
+    useEffect(() => {
+        const updateChartData = async () => {
+            const newData = await fetchChartData(timeframe);
+            setChartData(newData);
+        };
+        updateChartData();
+    }, [timeframe]);
+
+
 
     const chartOptions = {
         responsive: true,
@@ -130,10 +163,12 @@ function Cripto() {
             <main className="cripto-page">
                 <section className="cripto-info tema-escuro">
                     <div className="cripto-header">
-                        <h1>CardeiroCoin (CDT)</h1>
+                        <h1>Bitcoin (BTC)</h1>
                         <div className="price-info">
-                            <span className="current-price">$0.0458</span>
-                            <span className="price-change positive">+2.45%</span>
+                            <span className="current-price">${bitcoinData.currentPrice.toLocaleString()}</span>
+                            <span className={`price-change ${bitcoinData.priceChange >= 0 ? 'positive' : 'negative'}`}>
+                                {bitcoinData.priceChange.toFixed(2)}%
+                            </span>
                         </div>
                     </div>
 
@@ -159,22 +194,22 @@ function Cripto() {
                             </button>
                         </div>
                         <div style={{ height: '400px' }}>
-                            <Line ref={chartRef} data={getChartData(timeframe)} options={chartOptions} />
+                            <Line ref={chartRef} data={chartData} options={chartOptions} />
                         </div>
                     </div>
 
                     <div className="market-stats">
                         <div className="stat-item">
                             <span className="stat-label">Market Cap</span>
-                            <span className="stat-value">$45.8M</span>
+                            <span className="stat-value">${bitcoinData.marketCap.toLocaleString()}</span>
                         </div>
                         <div className="stat-item">
                             <span className="stat-label">Volume 24h</span>
-                            <span className="stat-value">$2.3M</span>
+                            <span className="stat-value">${bitcoinData.volume.toLocaleString()}</span>
                         </div>
                         <div className="stat-item">
                             <span className="stat-label">Circulating Supply</span>
-                            <span className="stat-value">1B CDT</span>
+                            <span className="stat-value">{bitcoinData.supply.toLocaleString()} BTC</span>
                         </div>
                     </div>
                 </section>
@@ -197,12 +232,7 @@ function Cripto() {
                 </div>
             </footer>
 
-            <div className="suporte-chat">
-                <button className="botao-suporte">
-                    <img src={iaIcon} alt="Suporte" />
-                    <span>SUPORTE I.A</span>
-                </button>
-            </div>
+            <AIChat />
         </>
     )
 }

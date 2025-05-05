@@ -3,6 +3,7 @@ import './suportestyle.css'
 import { Link } from 'react-router-dom'
 import criptoLogo from '../../assets/criptologo.PNG'
 import iaIcon from '../../assets/ia.png'
+import AIChat from '../../components/AIChat';
 
 function Suporte() {
     return (
@@ -81,12 +82,7 @@ function Suporte() {
                 </div>
             </footer>
 
-            <div className="suporte-chat">
-                <button className="botao-suporte">
-                    <img src={iaIcon} alt="Suporte" />
-                    <span>SUPORTE I.A</span>
-                </button>
-            </div>
+            <AIChat />
         </>
     )
 }
