@@ -140,6 +140,12 @@ function Cripto() {
         setTimeframe(newTimeframe)
     }
 
+    const botãoLogout = () => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('userId');
+        window.location.href = '/';
+    };
+
     return (
         <>
             <header className="tema-escuro">
@@ -149,14 +155,14 @@ function Cripto() {
                 </div>
                 <nav>
                     <ul>
-                        <li><Link to="/">Home</Link></li>
+                        <li><Link to="/home">Home</Link></li>
                         <li><Link to="/suporte">Suporte</Link></li>
                         <li><Link to="/cripto">Criptomoeda</Link></li>
                     </ul>
                 </nav>
                 <div className="botoes-autenticacao">
-                    <a href='/login' className="botao-entrar">Login</a>
-                    <a href='/cadastro' className="botao-cadastrar">Sign Up</a>
+                    <a href='/' onClick={botãoLogout} className="botao-logout">Sair</a>
+                    <a href='/configuracoes' className="botao-conf">Conf ⚙️</a>
                 </div>
             </header>
 

@@ -67,7 +67,7 @@ nav a {
   gap: 1rem;
 }
 
-.botao-entrar {
+.botao-logout, .botao-entrar {
   display: flex;
   background: transparent;
   align-items: center;
@@ -78,7 +78,7 @@ nav a {
   text-decoration: none;
 }
 
-.botao-cadastrar {
+.botao-conf, .botao-cadastrar {
   background: var(--cor-primaria);
   color: var(--fundo-escuro);
   border: none;
@@ -182,6 +182,8 @@ nav ul li a {
 
 .botao-entrar,
 .botao-cadastrar,
+.botao-logout,
+.botao-conf,
 .botao-acao,
 .botao-contato {
   font-family: 'Inter', sans-serif;

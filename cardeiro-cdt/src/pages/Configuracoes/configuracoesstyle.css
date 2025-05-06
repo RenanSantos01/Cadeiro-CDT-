@@ -1,0 +1,122 @@
+.configuracoes {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espaçamento entre os componentes */
+    max-width: 800px; /* Limita a largura máxima */
+    margin: 0 auto; /* Centraliza o conteúdo */
+  }
+  
+  .configuracoes h1 {
+    margin-bottom: 20px; /* Espaço abaixo do título principal */
+    color: #fff;
+  }
+  
+  .config-section {
+    padding: 20px;
+    background-color: #1d2a6e; /* Azul escuro */
+    border-radius: 8px;
+    margin-bottom: 20px; /* Espaçamento entre seções */
+  }
+  
+  .config-section h2 {
+    margin-bottom: 10px; /* Espaço abaixo do título da seção */
+    color: #fff;
+  }
+  
+  .config-section input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px; /* Espaço entre os campos de entrada */
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    color: #fff; /* Cor do texto do campo de input */
+    background-color: #2e3b8b; /* Cor de fundo do input */
+  }
+  
+  .config-section button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .config-section button:hover {
+    background-color: #45a049;
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  
+  .profile-container {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Espaçamento entre o avatar e o título */
+    margin-bottom: 20px; /* Espaçamento entre o perfil e a próxima seção */
+  }
+  
+  .avatar {
+    width: 80px;
+    height: 80px;
+    background-color: #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+  }
+  
+  .initials {
+    font-size: 30px;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .profile-container h2 {
+    margin-bottom: 20px; /* Espaçamento abaixo do título "Informações Pessoais" */
+    color: #fff;
+  }
+  
+  .profile-container div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espaçamento entre as informações do perfil */
+  }
+  
+  .profile-container input {
+    padding: 10px;
+    margin-bottom: 10px; /* Espaço entre os campos de entrada */
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: #2e3b8b;
+    color: #fff; /* Cor do texto do campo de input */
+  }
+  
+  .profile-container button {
+    padding: 12px;
+    background-color: #3708bb;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .profile-container button:hover {
+    background-color: #5131d1;
+  }
+  
+  .profile-container div p {
+    color: white; /* Altera a cor do texto para branco */
+  }
+  .config-section p {
+    color: white; /* Altera a cor do texto para branco */
+  }

@@ -51,9 +51,8 @@ function Login() {
     }
   }
 
-
   function toDashboard() {
-    window.location.href = '/';
+    window.location.href = '/home';
   }
 
   async function fazerlogin(event) {
@@ -66,12 +65,12 @@ function Login() {
       });
 
 
-      //const { token, userId } = response.data; // Certifique-se de que a API retorne o userId
-      //localStorage.setItem('token', token);
-      //const { userId } = response.data
-      //localStorage.setItem('userId', users.id)
-      //userId = users.id;
-      //console.log(userId);
+      // const { token } = response.data; // Certifique-se de que a API retorne o userId
+      // localStorage.setItem('token', token);
+      // const { userId } = response.data
+      // localStorage.setItem('userId', users.id)
+      // userId = users.id;
+      // console.log(userId);
 
       // Armazene o userId
 
@@ -113,15 +112,9 @@ function Login() {
           <img className="logotipo img" src={criptoLogo} alt="Cardeiro" />
           <span>Cardeiro</span>
         </div>
-        <nav>
-          <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/suporte">Suporte</Link></li>
-            <li><Link to="/cripto">Criptomoeda</Link></li>
-          </ul>
-        </nav>
+
         <div className="botoes-autenticacao">
-          <a href='/login' className="botao-entrar">Login</a>
+          <a href='/' className="botao-entrar">Login</a>
           <a href='/cadastro' className="botao-cadastrar">Sign Up</a>
         </div>
       </header>
@@ -150,7 +143,7 @@ function Login() {
                     const { token, userId } = response.data;
                     localStorage.setItem('token', token);
                     localStorage.setItem('userId', userId);
-                    window.location.href = '/'; // Redireciona após login
+                    window.location.href = '/home'; // Redireciona após login
                   })
                   .catch(error => {
                     setErrorMessage(error.response?.data?.message || 'Erro ao fazer login com Google');

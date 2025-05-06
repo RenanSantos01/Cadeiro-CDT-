@@ -50,7 +50,7 @@ function Cadastro() {
     }
 
     console.log('Cadastro realizado com sucesso!');
-    window.location.href = "./Login"
+    window.location.href = "./"
   };
 
   return (
@@ -60,15 +60,9 @@ function Cadastro() {
           <img className="logotipo img" src={criptoLogo} alt="Cardeiro" />
           <span>Cardeiro</span>
         </div>
-        <nav>
-          <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/suporte">Suporte</Link></li>
-            <li><Link to="/cripto">Criptomoeda</Link></li>
-          </ul>
-        </nav>
+
         <div className="botoes-autenticacao">
-          <a href='/login' className="botao-entrar">Login</a>
+          <a href='/' className="botao-entrar">Login</a>
           <a href='/cadastro' className="botao-cadastrar">Sign Up</a>
         </div>
       </header>
