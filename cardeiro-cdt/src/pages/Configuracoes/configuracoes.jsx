@@ -11,10 +11,13 @@ const Configuracoes = () => {
   const [passwordError, setPasswordError] = useState('');
   const userId = localStorage.getItem('userId');
   const token = localStorage.getItem('token');
-  const apiUrl = `https:http:/localhost:3001/users/${userId}`;
+  const apiUrl = `http://localhost:3001/users/${userId}`;
 
   useEffect(() => {
     const fetchUserData = async () => {
+      console.log('UserId:', userId);
+      console.log('Token:', token);
+      
       if (!userId) {
         setError('Usuário não encontrado. Faça login novamente.');
         setLoading(false);
@@ -23,7 +26,11 @@ const Configuracoes = () => {
 
       try {
         const response = await fetch(apiUrl, {
-          headers: { Authorization: `Bearer ${token}` },
+          method: 'GET',
+          headers: { 
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          },
         });
 
         if (!response.ok) {
@@ -31,6 +38,9 @@ const Configuracoes = () => {
         }
 
         const data = await response.json();
+        if (data.initials) {
+          console.log('Iniciais do usuário:', data.initials);
+        }
         setUser(data);
       } catch (error) {
         console.error('Erro ao buscar dados do usuário:', error.message);
