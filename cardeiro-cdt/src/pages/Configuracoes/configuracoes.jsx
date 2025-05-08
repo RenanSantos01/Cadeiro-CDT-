@@ -11,7 +11,7 @@ const Configuracoes = () => {
   const [passwordError, setPasswordError] = useState('');
   const userId = localStorage.getItem('userId');
   const token = localStorage.getItem('token');
-  const apiUrl = `http://localhost:3001/users/${userId}`;
+  const apiUrl = `http://localhost:8083/users/${userId}`;
 
   useEffect(() => {
     const fetchUserData = async () => {

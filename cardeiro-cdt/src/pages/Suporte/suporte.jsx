@@ -6,6 +6,54 @@ import iaIcon from '../../assets/ia.png'
 import AIChat from '../../components/AIChat';
 
 function Suporte() {
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        telefone: '',
+        contato: '',
+        problema: '',
+        descricao: ''
+    });
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prevState => ({
+            ...prevState,
+            [name]: value
+        }));
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await fetch('http://localhost:8083/suporte', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            });
+
+            if (response.ok) {
+                alert('Solicitação de suporte enviada com sucesso!');
+                e.target.reset();
+                setFormData({
+                    name: '',
+                    email: '',
+                    telefone: '',
+                    contato: '',
+                    problema: '',
+                    descricao: ''
+                });
+            } else {
+                alert('Erro ao enviar solicitação de suporte.');
+            }
+        } catch (error) {
+            console.error('Erro:', error);
+            alert('Erro ao enviar solicitação de suporte.');
+        }
+    };
+
     const botãoLogout = () => {
         localStorage.removeItem('token');
         localStorage.removeItem('userId');
@@ -37,20 +85,55 @@ function Suporte() {
                     <h1>Suporte ao Cliente</h1>
                     <p>Preencha o formulário abaixo para receber ajuda da nossa equipe.</p>
 
-                    <form id="suporteForm" className="form-container">
+                    <form id="suporteForm" className="form-container" onSubmit={handleSubmit}>
+                        <input 
+                            type="text" 
+                            id="name" 
+                            name="name" 
+                            placeholder="Nome Completo *" 
+                            required 
+                            value={formData.name}
+                            onChange={handleInputChange}
+                        />
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            placeholder="E-mail *" 
+                            required 
+                            value={formData.email}
+                            onChange={handleInputChange}
+                        />
+                        <input 
+                            type="tel" 
+                            id="telefone" 
+                            name="telefone" 
+                            placeholder="Telefone *" 
+                            required 
+                            value={formData.telefone}
+                            onChange={handleInputChange}
+                        />
 
-                        <input type="text" id="nomeCompleto" name="nomeCompleto" placeholder="Nome Completo *" required />
-                        <input type="email" id="email" name="email" placeholder="E-mail *" required />
-                        <input type="tel" id="telefone" name="telefone" placeholder="Telefone *" required />
-
-                        <select id="tipoContato" name="tipoContato" required>
-                            <option disabled selected>Como deseja ser contatado *</option>
-                            <option value="">E-mail</option>
-                            <option value="tecnico">Telefone</option>
+                        <select 
+                            id="contato" 
+                            name="contato" 
+                            required
+                            value={formData.contato}
+                            onChange={handleInputChange}
+                        >
+                            <option value="">Como deseja ser contatado *</option>
+                            <option value="email">E-mail</option>
+                            <option value="telefone">Telefone</option>
                         </select>
 
-                        <select id="tipoProblema" name="tipoProblema" required>
-                            <option disabled selected>Tipo de Problema *</option>
+                        <select 
+                            id="problema" 
+                            name="problema" 
+                            required
+                            value={formData.problema}
+                            onChange={handleInputChange}
+                        >
+                            <option value="">Tipo de Problema *</option>
                             <option value="tecnico">Problema Técnico</option>
                             <option value="financeiro">Questão Financeira</option>
                             <option value="conta">Problema com Conta</option>
@@ -59,11 +142,13 @@ function Suporte() {
                         </select>
 
                         <textarea
-                            id="descricaoProblema"
-                            name="descricaoProblema"
+                            id="descricao"
+                            name="descricao"
                             rows="5"
                             placeholder="Descreva seu problema *"
                             required
+                            value={formData.descricao}
+                            onChange={handleInputChange}
                         ></textarea>
 
                         <button type="submit" className="botao-enviar">Enviar Solicitação</button>
@@ -73,7 +158,7 @@ function Suporte() {
 
             <footer className="tema-escuro">
                 <div className="conteudo-rodape">
-                    <p className="direitos-autorais">© 2023 All Rights Reserved</p>
+                    <p className="direitos-autorais">© 2025 All Rights Reserved</p>
                     <div className="links-rodape">
                         <a href="#terms">Terms</a>
                         <a href="#privacy">Privacy</a>
