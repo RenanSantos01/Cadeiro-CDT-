@@ -1,122 +1,98 @@
+:root {
+  --cor-primaria: #FFB800;
+  --fundo-escuro: #0D0D0D;
+  --cor-texto: #FFFFFF;
+  --fundo-cartao: #1A1A1A;
+}
+
+.configuracoes-container {
+  background-color: var(--fundo-escuro);
+  min-height: calc(100vh - 160px);
+  padding: 2rem 0;
+}
+
 .configuracoes {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px; /* Espaçamento entre os componentes */
-    max-width: 800px; /* Limita a largura máxima */
-    margin: 0 auto; /* Centraliza o conteúdo */
-  }
-  
-  .configuracoes h1 {
-    margin-bottom: 20px; /* Espaço abaixo do título principal */
-    color: #fff;
-  }
-  
-  .config-section {
-    padding: 20px;
-    background-color: #1d2a6e; /* Azul escuro */
-    border-radius: 8px;
-    margin-bottom: 20px; /* Espaçamento entre seções */
-  }
-  
-  .config-section h2 {
-    margin-bottom: 10px; /* Espaço abaixo do título da seção */
-    color: #fff;
-  }
-  
-  .config-section input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px; /* Espaço entre os campos de entrada */
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-    color: #fff; /* Cor do texto do campo de input */
-    background-color: #2e3b8b; /* Cor de fundo do input */
-  }
-  
-  .config-section button {
-    width: 100%;
-    padding: 12px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .config-section button:hover {
-    background-color: #45a049;
-  }
-  
-  .error-message {
-    color: red;
-    font-size: 14px;
-    margin-top: 10px;
-  }
-  
-  .profile-container {
-    display: flex;
-    align-items: center;
-    gap: 20px; /* Espaçamento entre o avatar e o título */
-    margin-bottom: 20px; /* Espaçamento entre o perfil e a próxima seção */
-  }
-  
-  .avatar {
-    width: 80px;
-    height: 80px;
-    background-color: #ccc;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-  }
-  
-  .initials {
-    font-size: 30px;
-    color: white;
-    font-weight: bold;
-  }
-  
-  .profile-container h2 {
-    margin-bottom: 20px; /* Espaçamento abaixo do título "Informações Pessoais" */
-    color: #fff;
-  }
-  
-  .profile-container div {
-    display: flex;
-    flex-direction: column;
-    gap: 10px; /* Espaçamento entre as informações do perfil */
-  }
-  
-  .profile-container input {
-    padding: 10px;
-    margin-bottom: 10px; /* Espaço entre os campos de entrada */
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    background-color: #2e3b8b;
-    color: #fff; /* Cor do texto do campo de input */
-  }
-  
-  .profile-container button {
-    padding: 12px;
-    background-color: #3708bb;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  .profile-container button:hover {
-    background-color: #5131d1;
-  }
-  
-  .profile-container div p {
-    color: white; /* Altera a cor do texto para branco */
-  }
-  .config-section p {
-    color: white; /* Altera a cor do texto para branco */
-  }
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.configuracoes h1 {
+  margin-bottom: 20px;
+  color: var(--cor-texto);
+  font-size: 2rem;
+  text-align: center;
+}
+
+.config-section {
+  padding: 20px;
+  background-color: var(--fundo-cartao);
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.config-section h2 {
+  margin-bottom: 15px;
+  color: var(--cor-texto);
+  font-size: 1.5rem;
+}
+
+.config-section input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  border: 1px solid #444;
+  font-size: 16px;
+  color: var(--cor-texto);
+  background-color: var(--fundo-escuro);
+}
+
+.config-section button {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--cor-primaria);
+  color: var(--fundo-escuro);
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.config-section button:hover {
+  scale: 1.02;
+}
+
+.error-message {
+  color: #ff4444;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.profile-container {
+  background-color: var(--fundo-cartao);
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.profile-container h2 {
+  color: var(--cor-texto);
+  margin-bottom: 20px;
+}
+
+.profile-container div p {
+  color: var(--cor-texto);
+  margin-bottom: 10px;
+}
+
+.config-section p {
+  color: var(--cor-texto);
+}
+
+/* Estilos do header e footer herdados do tema-escuro global */

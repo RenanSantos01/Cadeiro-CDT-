@@ -7,6 +7,11 @@
   --fundo-cartao: #1A1A1A;
 }
 
+.main {
+  display: flex;
+  height: 100vh;
+}
+
 .principal {
   padding: 4rem;
   position: relative;

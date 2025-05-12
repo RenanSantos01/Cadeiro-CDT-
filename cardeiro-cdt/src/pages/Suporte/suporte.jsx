@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import criptoLogo from '../../assets/criptologo.PNG'
 import iaIcon from '../../assets/ia.png'
 import AIChat from '../../components/AIChat';
+import api from '../../services/api';
 
 function Suporte() {
     const [formData, setFormData] = useState({
@@ -26,15 +27,9 @@ function Suporte() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://localhost:8083/suporte', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData)
-            });
+            const response = await api.post('/suporte', formData);
 
-            if (response.ok) {
+            if (response.status === 200 || response.status === 201) {
                 alert('Solicitação de suporte enviada com sucesso!');
                 e.target.reset();
                 setFormData({
@@ -50,7 +45,11 @@ function Suporte() {
             }
         } catch (error) {
             console.error('Erro:', error);
-            alert('Erro ao enviar solicitação de suporte.');
+            if (error.code === 'ERR_NETWORK') {
+                alert('Erro de conexão: Servidor não está disponível. Por favor, tente novamente mais tarde.');
+            } else {
+                alert('Erro ao enviar solicitação de suporte. Por favor, tente novamente.');
+            }
         }
     };
 
@@ -137,7 +136,6 @@ function Suporte() {
                             <option value="tecnico">Problema Técnico</option>
                             <option value="financeiro">Questão Financeira</option>
                             <option value="conta">Problema com Conta</option>
-                            <option value="curso">Dúvida sobre Cursos</option>
                             <option value="outro">Outro</option>
                         </select>
 

@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import "../Configuracoes/configuracoesstyle.css";
 import Perfil from '../../components/perfil/perfil';
+import api from '../../services/api';
+import criptoLogo from '../../assets/criptologo.PNG';
 
 const Configuracoes = () => {
   const [user, setUser] = useState(null);
@@ -11,12 +14,12 @@ const Configuracoes = () => {
   const [passwordError, setPasswordError] = useState('');
   const userId = localStorage.getItem('userId');
   const token = localStorage.getItem('token');
-  const apiUrl = `http://localhost:8083/users/${userId}`;
+  // const apiUrl = `http://localhost:3001/users/${userId}`;
 
   useEffect(() => {
     const fetchUserData = async () => {
-      console.log('UserId:', userId);
-      console.log('Token:', token);
+      // console.log('UserId:', userId);
+      // console.log('Token:', token);
       
       if (!userId) {
         setError('Usuário não encontrado. Faça login novamente.');
@@ -25,23 +28,16 @@ const Configuracoes = () => {
       }
 
       try {
-        const response = await fetch(apiUrl, {
-          method: 'GET',
+        const response = await api.get(`/users/${userId}`, {
           headers: { 
-            'Authorization': `Bearer ${token}`,
-            'Content-Type': 'application/json'
-          },
+            'Authorization': `Bearer ${token}`
+          }
         });
 
-        if (!response.ok) {
-          throw new Error(`Erro na resposta da rede: ${response.status} - ${response.statusText}`);
+        if (response.data.initials) {
+          console.log('Iniciais do usuário:', response.data.initials);
         }
-
-        const data = await response.json();
-        if (data.initials) {
-          console.log('Iniciais do usuário:', data.initials);
-        }
-        setUser(data);
+        setUser(response.data);
       } catch (error) {
         console.error('Erro ao buscar dados do usuário:', error.message);
         setError(`Erro ao carregar os dados do usuário: ${error.message}`);
@@ -51,7 +47,7 @@ const Configuracoes = () => {
     };
 
     fetchUserData();
-  }, [apiUrl, userId, token]);
+  }, [userId, token]);
 
   const handlePasswordChange = async () => {
     if (!oldPassword || !newPassword) {
@@ -59,22 +55,20 @@ const Configuracoes = () => {
       return;
     }
 
-    if (oldPassword !== user?.password) {
-      setPasswordError('Senha antiga incorreta.');
-      return;
-    }
-
     try {
-      const response = await fetch(apiUrl, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`
+      const response = await api.put(`/users/${userId}`, 
+        { 
+          oldPassword: oldPassword,
+          password: newPassword 
         },
-        body: JSON.stringify({ password: newPassword })
-      });
+        { 
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        }
+      );
 
-      if (response.ok) {
+      if (response.status === 200) {
         setOldPassword('');
         setNewPassword('');
         setPasswordError('');
@@ -84,42 +78,85 @@ const Configuracoes = () => {
       }
     } catch (error) {
       console.error('Erro ao atualizar a senha:', error);
-      setPasswordError('Erro ao atualizar a senha. Tente novamente.');
+      if (error.response?.status === 401) {
+        setPasswordError('Senha atual incorreta.');
+      } else {
+        setPasswordError('Erro ao atualizar a senha. Tente novamente.');
+      }
     }
+  };
+
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('userId');
+    navigate('/');
   };
 
   if (loading) return <div>Carregando...</div>;
   if (error) return <div>{error}</div>;
 
+
+
   return (
-    <div className="configuracoes">
-      <h1>Configurações da Conta</h1>
+    <>
+      <header className="tema-escuro">
+        <div className="logotipo">
+          <img className="logotipo img" src={criptoLogo} alt="Cardeiro" />
+          <span>Cardeiro</span>
+        </div>
 
-      <Perfil />
+      </header>
 
-      <section className="config-section">
-        <h2>Alterar Senha</h2>
-        <input
-          type="password"
-          placeholder="Senha Atual"
-          value={oldPassword}
-          onChange={(e) => setOldPassword(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Nova Senha"
-          value={newPassword}
-          onChange={(e) => setNewPassword(e.target.value)}
-        />
-        <button onClick={handlePasswordChange} className="edit-button">Salvar Nova Senha</button>
-        {passwordError && <p className="error-message">{passwordError}</p>}
-      </section>
+      <main className="configuracoes-container">
+        <div className="configuracoes">
+          <h1>Configurações da Conta</h1>
 
-      <section className="config-section">
-        <h2>Configurações</h2>
-        <p>Novas funcionalidades em breve.</p>
-      </section>
-    </div>
+          <Perfil />
+
+          <section className="config-section">
+            <h2>Alterar Senha</h2>
+            <input
+              type="password"
+              placeholder="Senha Atual"
+              value={oldPassword}
+              onChange={(e) => setOldPassword(e.target.value)}
+            />
+            <input
+              type="password"
+              placeholder="Nova Senha"
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
+            />
+            <button onClick={handlePasswordChange} className="edit-button">Salvar Nova Senha</button>
+            {passwordError && <p className="error-message">{passwordError}</p>}
+          </section>
+
+          <section className="config-section">
+            <h2>Configurações</h2>
+            <p>Novas funcionalidades em breve.</p>
+          </section>
+        </div>
+      </main>
+
+      <footer className="tema-escuro">
+        <div className="conteudo-rodape">
+          <p className="direitos-autorais">© 2023 All Rights Reserved</p>
+          <div className="links-rodape">
+            <a href="#terms">Terms</a>
+            <a href="#privacy">Privacy</a>
+            <a href="#cookies">Cookies</a>
+          </div>
+          <div className="icones-sociais">
+            <a href="#" className="icone-social">f</a>
+            <a href="#" className="icone-social">t</a>
+            <a href="#" className="icone-social">in</a>
+            <a href="#" className="icone-social">ig</a>
+          </div>
+        </div>
+      </footer>
+    </>
   );
 };
 

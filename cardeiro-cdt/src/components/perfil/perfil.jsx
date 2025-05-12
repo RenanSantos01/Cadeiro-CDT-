@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import api from '../../services/api';
+import './perfil.css';
 
 const Perfil = () => {
     const [user, setUser] = useState(null);
@@ -42,8 +44,19 @@ const Perfil = () => {
         }
     };
 
+    const navigate = useNavigate();
+
+    const handleBackToHome = () => {
+        navigate('/home');
+    };
+
     return (
         <div className="profile-container">
+            <div className="profile-header">
+                <button onClick={handleBackToHome} className="back-button">
+                    ← Voltar para Home
+                </button>
+            </div>
             <div className="avatar">
                 {user?.image ? (
                     <img src={user.image} alt="Avatar" />
@@ -54,25 +67,25 @@ const Perfil = () => {
             <h2>Informações Pessoais</h2>
             {editing ? (
                 <div>
-                    <input
+                    <input className='input-perfil'
                         type="text"
                         name="name"
                         value={formData.name}
                         onChange={handleInputChange}
                     />
-                    <input
+                    <input className='input-perfil'
                         type="email"
                         name="email"
                         value={formData.email}
                         onChange={handleInputChange}
                     />
-                    <button onClick={handleSaveChanges}>Salvar</button>
+                    <button onClick={handleSaveChanges} className="save-button">Salvar</button>
                 </div>
             ) : (
                 <div>
                     <p><strong>Nome:</strong> {user?.name}</p>
                     <p><strong>Email:</strong> {user?.email}</p>
-                    <button onClick={handleEditToggle}>Editar</button>
+                    <button onClick={handleEditToggle} className="edit-button">Editar</button>
                 </div>
             )}
         </div>

@@ -1,42 +1,24 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import './style.css'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import criptoLogo from '../../assets/criptologo.PNG'
-import imgInv1 from '../../assets/imginvestimento1.jpeg'
-import imgCurso1 from '../../assets/imgcursoinv1.jpeg'
-import imgInv2 from '../../assets/imginvestimento2.jpeg'
-import imgCurso2 from '../../assets/imgcursoinv2.jpeg'
-import imgInv3 from '../../assets/imginvestimento3.jpeg'
 import AIChat from '../../components/AIChat';
 
 function Home() {
-    const [currentIndex, setCurrentIndex] = useState(0);
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentIndex((prevIndex) => {
-                const nextIndex = prevIndex + 1;
-                if (nextIndex >= 5) {
-                    setTimeout(() => {
-                        document.querySelector('.carrossel').style.transition = 'none';
-                        setCurrentIndex(0);
-                        setTimeout(() => {
-                            document.querySelector('.carrossel').style.transition = 'transform 0.8s ease-in-out';
-                        }, 50);
-                    }, 800);
-                    return nextIndex;
-                }
-                return nextIndex;
-            });
-        }, 3000);
-
-        return () => clearInterval(interval);
-    }, []);
+    const navigate = useNavigate();
 
     const botãoLogout = () => {
         localStorage.removeItem('token');
         localStorage.removeItem('userId');
         window.location.href = '/';
+    };
+
+    const handleCriptoClick = () => {
+        navigate('/cripto');
+    };
+
+    const handleContatoClick = () => {
+        navigate('/suporte');
     };
 
     return (
@@ -69,55 +51,9 @@ function Home() {
                             <span className="icone-globo">🌐</span>
                             <span>+... Usuários no Brasil todo.</span>
                         </div>
-                        <button className="botao-acao">Desbloqueie a liberdade financeira ➜</button>
-                    </div>
-                </section>
-
-                <section className="noticias">
-                    <h2>ÚLTIMAS NOVIDADES:</h2>
-                    <div className="carrossel" style={{ transform: `translateX(-${currentIndex * 20}%)` }}>
-                        {/* Original cards */}
-                        <div className="cartao">
-                            <img src={imgInv1} alt="Ícone do Curso" />
-                            <h3>NOTÍCIA INVESTIMENTO 1</h3>
-                            <p>Work with companies developing projects to create your NFTs and get paid.</p>
-                        </div>
-                        <div className="cartao">
-                            <img src={imgCurso1} alt="Ícone do Curso" />
-                            <h3>CURSO DE ESPECIALIZAÇÃO 1</h3>
-                            <p>Work with companies developing projects to create your NFTs and get paid.</p>
-                        </div>
-                        <div className="cartao">
-                            <img src={imgInv2} alt="Ícone do Curso" />
-                            <h3>NOTÍCIA INVESTIMENTO 2</h3>
-                            <p>Work with companies developing projects to create your NFTs and get paid.</p>
-                        </div>
-                        <div className="cartao">
-                            <img src={imgCurso2} alt="Ícone do Curso" />
-                            <h3>CURSO DE ESPECIALIZAÇÃO 2</h3>
-                            <p>Work with companies developing projects to create your NFTs and get paid.</p>
-                        </div>
-                        <div className="cartao">
-                            <img src={imgInv3} alt="Ícone do Curso" />
-                            <h3>NOTÍCIA INVESTIMENTO 3</h3>
-                            <p>Work with companies developing projects to create your NFTs and get paid.</p>
-                        </div>
-                        {/* Duplicate first cards for smooth loop */}
-                        <div className="cartao">
-                            <img src={imgInv1} alt="Ícone do Curso" />
-                            <h3>NOTÍCIA INVESTIMENTO 1</h3>
-                            <p>Work with companies developing projects to create your NFTs and get paid.</p>
-                        </div>
-                        <div className="cartao">
-                            <img src={imgCurso1} alt="Ícone do Curso" />
-                            <h3>CURSO DE ESPECIALIZAÇÃO 1</h3>
-                            <p>Work with companies developing projects to create your NFTs and get paid.</p>
-                        </div>
-                        <div className="cartao">
-                            <img src={imgInv2} alt="Ícone do Curso" />
-                            <h3>NOTÍCIA INVESTIMENTO 2</h3>
-                            <p>Work with companies developing projects to create your NFTs and get paid.</p>
-                        </div>
+                        <button className="botao-acao" onClick={handleCriptoClick}>
+                            Desbloqueie a liberdade financeira ➜
+                        </button>
                     </div>
                 </section>
 
@@ -126,7 +62,9 @@ function Home() {
                     <h2>Para mais informações</h2>
                     <p>A Cardeiro é uma plataforma de educação ligada à criptomoeda CardeiroCoin, onde buscamos ampliar a visão
                         educacional.</p>
-                    <button className="botao-contato">Contate-nos</button>
+                    <button className="botao-contato" onClick={handleContatoClick}>
+                        Contate-nos
+                    </button>
                 </section>
             </main>
 
