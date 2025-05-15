@@ -17,24 +17,24 @@ function AIChat() {
         'horário de atendimento': 'Nosso atendimento funciona de segunda a sexta, das 9h às 18h. Fora desse horário, você pode deixar sua dúvida aqui que responderemos assim que possível.',
         'localização': 'Estamos sediados na Bahia, mas atendemos clientes de todo o Brasil, totalmente online.',
         'privacidade': 'Respeitamos sua privacidade e protegemos seus dados conforme a legislação vigente. Para mais detalhes, consulte nossa política de privacidade no site.',
-        'como funciona': 'A Cardeiro é uma plataforma de educação em criptomoedas que oferece cursos e conteúdo especializado para ajudar você a entender e investir no mercado cripto.',
+        'como funciona': 'A Cardeiro é uma plataforma especializada em criptomoedas que ajuda você a entender e investir no mercado cripto.',
         'cardeirocoin': `A Cardeiro Tech não é apenas mais uma criptomoeda no mercado — ela representa uma revolução no jeito de investir com propósito.
 
-Criada para oferecer benefícios reais e sustentáveis a longo prazo, a Cardeiro Tech foi pensada para quem quer crescer financeiramente enquanto apoia o avanço da educação tecnológica no Brasil e no mundo.
+Criada para oferecer benefícios reais e sustentáveis a longo prazo, a Cardeiro Tech foi pensada para quem quer crescer financeiramente enquanto apoia o avanço da tecnologia no Brasil e no mundo.
 
-Ao adquirir Cardeiro Tech, você não está só comprando um ativo digital. Está investindo em um projeto sólido que tem como missão fomentar o conhecimento e a capacitação em áreas de ponta, como tecnologia, inovação e criptomoedas. Parte dos recursos obtidos com a Cardeiro Tech é direcionada para programas educacionais, cursos e iniciativas que vão formar a próxima geração de profissionais preparados para o mercado digital.
+Ao adquirir Cardeiro Tech, você não está só comprando um ativo digital. Está investindo em um projeto sólido que tem como missão fomentar o conhecimento e a inovação em áreas de ponta, como tecnologia e criptomoedas. Parte dos recursos obtidos com a Cardeiro Tech é direcionada para iniciativas que vão formar a próxima geração de profissionais preparados para o mercado digital.
 
 Por que investir na Cardeiro Tech?
 
-- Benefícios exclusivos a longo prazo: A Cardeiro Tech oferece vantagens para seus holders, incluindo acesso a conteúdos exclusivos, descontos em cursos e participação em eventos especiais da comunidade.
+- Benefícios exclusivos a longo prazo: A Cardeiro Tech oferece vantagens para seus holders, incluindo acesso a conteúdos exclusivos e participação em eventos especiais da comunidade.
 
-- Valorização sustentável: Diferente de muitas criptomoedas voláteis, a Cardeiro Tech aposta em uma estratégia consistente, com foco em crescimento sólido e sustentável, amparado pelo fortalecimento do ecossistema educacional.
+- Valorização sustentável: Diferente de muitas criptomoedas voláteis, a Cardeiro Tech aposta em uma estratégia consistente, com foco em crescimento sólido e sustentável.
 
-- Compromisso com educação: Ao investir, você contribui para o desenvolvimento de programas educacionais inovadores, ajudando milhares de pessoas a se qualificarem para o futuro do trabalho.
+- Compromisso com inovação: Ao investir, você contribui para o desenvolvimento de iniciativas inovadoras, ajudando milhares de pessoas a se conectarem com o futuro da tecnologia.
 
-- Comunidade forte e engajada: Ao fazer parte da Cardeiro Tech, você entra para uma rede de investidores, educadores e entusiastas que compartilham a visão de um futuro mais tecnológico e acessível para todos.
+- Comunidade forte e engajada: Ao fazer parte da Cardeiro Tech, você entra para uma rede de investidores e entusiastas que compartilham a visão de um futuro mais tecnológico e acessível para todos.
 
-Investir na Cardeiro Tech é apostar no futuro — seu, da tecnologia e da educação. Não perca a chance de fazer parte desse movimento que une lucro, inovação e transformação social.`,
+Investir na Cardeiro Tech é apostar no futuro — seu e da tecnologia. Não perca a chance de fazer parte desse movimento que une lucro e inovação.`,
 
         'feedback': 'Queremos ouvir você! Envie seu feedback para melhorias da plataforma pelo nosso formulário de contato.',
   };
