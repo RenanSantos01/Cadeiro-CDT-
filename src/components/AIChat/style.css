@@ -5,4 +5,9 @@
     right: 2rem;
 }
 
+.chat-mensagens .mensagem {
+    color: black !important;
+}
+
+
 /* ... rest of the AI chat styles ... */
