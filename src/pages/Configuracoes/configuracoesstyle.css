@@ -8,7 +8,6 @@
 .configuracoes-container {
   background-color: var(--fundo-escuro);
   min-height: calc(100vh - 160px);
-  padding: 2rem 0;
 }
 
 .configuracoes {

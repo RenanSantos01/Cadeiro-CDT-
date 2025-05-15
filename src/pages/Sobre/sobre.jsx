@@ -1,10 +1,12 @@
 import { useState } from 'react'
-import './criptostyle.css'
-import { Link } from 'react-router-dom'
+import './stylesobre.css'
+import { Link, useNavigate } from 'react-router-dom';
 import criptoLogo from '../../assets/criptologo.PNG'
 import AIChat from '../../components/AIChat';
 
-function Cripto() {
+function Sobre() {
+    const navigate = useNavigate();
+
     const botãoLogout = () => {
         localStorage.removeItem('token');
         localStorage.removeItem('userId');
@@ -32,14 +34,14 @@ function Cripto() {
                 </div>
             </header>
 
-            <main className="cripto-page">
+            <main className="sobre-page">
                 <section className="video-section tema-escuro">
-                    <h1>Como comprar CDT</h1>
+                    <h1>Conheça o Projeto Cardeiro</h1>
                     <div className="video-container">
                         <iframe 
                             width="560" 
                             height="315" 
-                            src="https://www.youtube.com/embed/fmZhpnQBlh4?si=QK2HMGANLAr9MQ0u&amp;autoplay=1&amp;rel=0" 
+                            src="https://www.youtube.com/embed/AFbIktW4hn0?si=cNbjBZD-OBOOhDPB&amp;autoplay=1&amp;rel=0" 
                             title="YouTube video player" 
                             frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -69,7 +71,7 @@ function Cripto() {
 
             <AIChat />
         </>
-    )
+    );
 }
 
-export default Cripto
+export default Sobre;

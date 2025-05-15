@@ -49,7 +49,7 @@ function Cadastro() {
       return;
     }
 
-    console.log('Cadastro realizado com sucesso!');
+    alert('Cadastro realizado com sucesso!');
     window.location.href = "./"
   };
 
@@ -111,7 +111,8 @@ function Cadastro() {
               })
                 .then(response => {
                   console.log('Usuário cadastrado com Google:', response.data);
-                  window.location.href = "./Login";
+                  window.location.href = "./";
+                  alert('Usuário cadastrado com sucesso! Você pode agora fazer login.');
                 })
                 .catch(error => {
                   console.error('Erro ao cadastrar usuário com Google:', error);

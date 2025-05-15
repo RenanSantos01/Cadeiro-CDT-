@@ -21,6 +21,10 @@ function Home() {
         navigate('/suporte');
     };
 
+    const handleSobreClick = () => {
+        navigate('/sobre');
+    };
+
     return (
         <>
             <header className="tema-escuro">
@@ -32,6 +36,7 @@ function Home() {
                     <ul>
                         <li><Link to="/home">Home</Link></li>
                         <li><Link to="/suporte">Suporte</Link></li>
+                        <li><Link to="/sobre">Sobre</Link></li>
                         <li><Link to="/cripto">Criptomoeda</Link></li>
                     </ul>
                 </nav>
@@ -59,12 +64,16 @@ function Home() {
 
                 <section className="informacao">
                     <h4>QUALIFICAÇÃO PARA UM FUTURO MELHOR</h4>
-                    <h2>Para mais informações</h2>
                     <p>A Cardeiro é uma plataforma de educação ligada à criptomoeda CardeiroCoin, onde buscamos ampliar a visão
                         educacional.</p>
-                    <button className="botao-contato" onClick={handleContatoClick}>
-                        Contate-nos
-                    </button>
+                    <p>O Cardeiro é uma plataforma inovadora que usa blockchain e contratos inteligentes para mostrar, na prática, como essas tecnologias podem transformar a educação, tornando-a mais transparente, segura e eficiente.</p>
+                    <p>O CDT possibilita investimentos descentralizados, seguros e transparentes, utilizando a tecnologia blockchain. Você pode contribuir para o futuro da educação!</p>
+                    <h2>Para mais informações</h2>
+                    <div className="botoes-informacao">
+                        <button className="botao-contato" onClick={handleContatoClick}>
+                            Contate-nos
+                        </button>
+                    </div>
                 </section>
             </main>
 

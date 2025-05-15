@@ -70,6 +70,7 @@ function Suporte() {
                     <ul>
                         <li><Link to="/home">Home</Link></li>
                         <li><Link to="/suporte">Suporte</Link></li>
+                        <li><Link to="/sobre">Sobre</Link></li>
                         <li><Link to="/cripto">Criptomoeda</Link></li>
                     </ul>
                 </nav>

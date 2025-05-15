@@ -4,12 +4,14 @@ import Cripto from './pages/Cripto/cripto'
 import Suporte from './pages/Suporte/suporte'
 import Cadastro from './pages/Cadastro/cadastro'
 import Login from './pages/Login/login'
+import Sobre from './pages/Sobre/sobre'
 import Configuracoes from './pages/Configuracoes/configuracoes'
 
 function App() {
   return (
     <Routes>
       <Route path="/home" element={<Home />} />
+      <Route path="/sobre" element={<Sobre />} />
       <Route path="/cripto" element={<Cripto />} />
       <Route path="/suporte" element={<Suporte />} />
       <Route path='/cadastro' element={<Cadastro/>}/>
